@@ -1,11 +1,13 @@
 #!/usr/bin/python3
-"""A python script that taskes a URL and an email adress 
-   sends POST request to the URL with email a parameter """
+"""
+Given URL & email as params, send POST req to URL, display response body utf-8
+usage: ./6-post_email.py http://0.0.0.0:5000/post_email
+"""
+from sys import argv
 import requests
-import sys
-
 
 if __name__ == "__main__":
-    email = {'email': sys.argv[2]}
-    r = requests.post(sys.argv[1], data=email)
+    arg_url = argv[1]
+    arg_payload = {'email': argv[2]}
+    r = requests.post(arg_url, data=arg_payload)
     print(r.text)
